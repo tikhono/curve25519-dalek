@@ -552,7 +552,7 @@ impl EdwardsPoint {
     }
 
     /// Create an EdwardsPoint from bytes
-    pub fn from_bytes(x: &[u8], y: &[u8], z: &[u8], t: &[u8]) -> EdwardsPoint {
+    pub fn from_bytes(x: &[u8; 32], y: &[u8; 32], z: &[u8; 32], t: &[u8; 32]) -> EdwardsPoint {
         EdwardsPoint {
             X: FieldElement::from_bytes(x),
             Y: FieldElement::from_bytes(y),
