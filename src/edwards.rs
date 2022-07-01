@@ -551,16 +551,6 @@ impl EdwardsPoint {
             .mul_by_cofactor()
     }
 
-    /// Create an EdwardsPoint from bytes
-    pub fn from_bytes(x: &[u8; 32], y: &[u8; 32], z: &[u8; 32], t: &[u8; 32]) -> EdwardsPoint {
-        EdwardsPoint {
-            X: FieldElement::from_bytes(x),
-            Y: FieldElement::from_bytes(y),
-            Z: FieldElement::from_bytes(z),
-            T: FieldElement::from_bytes(t),
-        }
-    }
-
     /// Get X
     pub fn get_x(&self) -> FieldElement {
         self.X
