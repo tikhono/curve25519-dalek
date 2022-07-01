@@ -320,10 +320,10 @@ impl<'de> Deserialize<'de> for CompressedEdwardsY {
 #[derive(Copy, Clone)]
 #[allow(missing_docs)]
 pub struct EdwardsPoint {
-    pub X: FieldElement,
-    pub Y: FieldElement,
-    pub Z: FieldElement,
-    pub T: FieldElement,
+    pub(crate) X: FieldElement,
+    pub(crate) Y: FieldElement,
+    pub(crate) Z: FieldElement,
+    pub(crate) T: FieldElement,
 }
 
 // ------------------------------------------------------------------------
@@ -549,6 +549,23 @@ impl EdwardsPoint {
         E1_opt
             .expect("Montgomery conversion to Edwards point in Elligator failed")
             .mul_by_cofactor()
+    }
+
+    /// Get X
+    pub fn get_x(&self) -> FieldElement {
+        self.X
+    }
+    /// Get Y
+    pub fn get_y(&self) -> FieldElement {
+        self.Y
+    }
+    /// Get Z
+    pub fn get_z(&self) -> FieldElement {
+        self.Z
+    }
+    /// Get T
+    pub fn get_t(&self) -> FieldElement {
+        self.T
     }
 }
 
